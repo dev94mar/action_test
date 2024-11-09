@@ -1,0 +1,21 @@
+# .github/workflows/main.yml
+
+name: "Run Custom Docker Action"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Run the custom Docker-based GitHub Action
+      - name: Run custom Docker action
+        uses: ./.github/actions/my-docker-action
+        with:
+          message: "Custom message from workflow!"

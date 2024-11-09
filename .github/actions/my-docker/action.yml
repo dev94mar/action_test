@@ -1,0 +1,13 @@
+# .github/actions/my-docker-action/action.yml
+
+name: "My Custom Docker Action"
+description: "A custom GitHub Action that runs a Docker container."
+author: "Marino"
+inputs:
+  message:
+    description: "Message to display"
+    required: false
+    default: "Hello, this is my custom GitHub Action with Docker!"
+runs:
+  using: "docker"
+  image: "Dockerfile"
