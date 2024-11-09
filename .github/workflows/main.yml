@@ -16,6 +16,6 @@ jobs:
 
       # Run the custom Docker-based GitHub Action
       - name: Run custom Docker action
-        uses: ./.github/actions/action
+        uses: ./.github/actions/my-docker
         with:
           message: "Custom message from workflow!"
