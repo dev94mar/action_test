@@ -1,21 +1,15 @@
-# .github/workflows/main.yml
-
-name: "Run Custom Docker Action"
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  run-action:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Run the custom Docker-based GitHub Action
-      - name: Run custom Docker action
-        uses: ./.github/actions/my-docker
+      - name: Hello world action step
+        id: hello
+        uses: dev94mar/hello-world-docker-action@v1
         with:
-          message: "Custom message from workflow!"
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

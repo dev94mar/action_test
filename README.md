@@ -1,2 +1,2 @@
 # action_test
-testeando actiosn
+testeando actions
