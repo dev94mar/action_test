@@ -1,19 +1,25 @@
-on:
-  push:
-    branches:
-      - main
+name: 1.0$(Rev:.r)
+
+# simplified trigger (implied branch)
+trigger:
+
+- main
+
+# equivalents trigger
+# trigger:
+#  branches:
+#    include:
+#    - main
+
+variables:
+  name: John
+
+pool:
+  vmImage: ubuntu-latest
 
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello world action step
-        run: |
-          echo "Hello world from job1"
 
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Second job
-        run: |
-          echo "Hello world from job2"
+- job: helloworld
+  steps:
+    - checkout: self
+    - script: echo "Hello, $(name)"
