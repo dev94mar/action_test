@@ -1,47 +1,16 @@
-name: Prueba
-on:
-  branch:
-    push:
-     - main
-
+on: [push]
 
 jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world action step
+        run: |
+          echo "Hello world from job1"
 
-- job: A
-  steps:
-
-  - script: echo' job A.'
-
-
-- job: B
-  dependsOn: A
-  steps:
-
-  - script: echo' job B.'
-
-
-- job: C
-  dependsOn: A
-  steps:
-
-  - script: echo' job C.'
-
-
-- job: D
-  dependsOn:
-
-  - B
-  - C
-  steps:
-
-  - script: echo' job D.'
-
-
-- job: E
-  dependsOn:
-
-  - B
-  - D
-  steps:
-
-  - script: echo' job E.'
+  job2:
+    dependsOn: job1
+    steps:
+      - name: Second job
+        run: |
+          echo "Hello world from job2"
