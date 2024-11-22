@@ -6,9 +6,10 @@ jobs:
     steps:
       - name: Hello world action step
         run: |
-         echo "Hello world from job1"
+          echo "Hello world from job1"
+
   job2:
-   steps:
-    - name: Second job
-     run: |
-         echo "Hello world from job2"
+    steps:
+      - name: Second job
+        run: |
+          echo "Hello world from job2"
