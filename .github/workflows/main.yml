@@ -9,6 +9,7 @@ jobs:
           echo "Hello world from job1"
 
   job2:
+    runs-on: ubuntu-latest
     steps:
       - name: Second job
         run: |
