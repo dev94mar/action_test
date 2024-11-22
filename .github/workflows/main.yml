@@ -1,16 +1,15 @@
 on: [push]
 
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hello world action step
-        run: |
-          echo "Hello world from job1"
 
-  job2:
-    dependsOn: job1
-    steps:
-      - name: Second job
-        run: |
-          echo "Hello world from job2"
+- job: A
+  steps:
+
+  - script: echo' job A.'
+
+
+- job: B
+  dependsOn: A
+  steps:
+
+  - script: echo' job B.'
